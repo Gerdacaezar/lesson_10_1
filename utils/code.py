@@ -9,3 +9,8 @@ def up_first(msg: str) -> str:
 def reverse_list(lst: list) -> list:
     """Функция принимает список и возвращает его в обратном порядке"""
     return lst[::-1]
+
+
+def reverse_string(string: str) -> str:
+    """Функция принимает строку и возвращает ее в обратном порядке"""
+    return string[::-1]

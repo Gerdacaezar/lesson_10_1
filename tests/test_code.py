@@ -1,6 +1,6 @@
 import pytest
 
-from utils.code import up_first, reverse_list
+from utils.code import up_first, reverse_list, reverse_string
 
 
 def test_up_first():
@@ -29,3 +29,14 @@ def my_list():
 
 def test_reverse_list(my_list):
     assert reverse_list(my_list) == ["five", "four", 3, 2, 1, False]
+
+
+@pytest.mark.parametrize("string, expected_result", [
+    ("hello", "olleh"),
+    ("world", "dlrow"),
+    ("12345", "54321"),
+    ("", ""),
+])
+def test_reverse_string(string, expected_result):
+    assert reverse_string(string) == expected_result
+    
