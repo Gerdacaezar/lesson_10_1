@@ -1,6 +1,6 @@
 import pytest
 
-from src.masks import get_mask_card_number
+from src.masks import get_mask_card_number, get_mask_account
 
 
 @pytest.mark.parametrize(
@@ -81,3 +81,83 @@ def test_get_mask_card_number_not_16(card_num, input_not_16):
 )
 def test_get_mask_card_number_empty(card_num, empty_input):
     assert get_mask_card_number(card_num) == empty_input
+
+
+@pytest.mark.parametrize(
+    "account_num, expected_account_num",
+    [
+        (64686473678894779589, "**9589"),
+        (35383033474447895560, "**5560"),
+        (73654108430135874305, "**4305"),
+        ("64686473678894779589", "**9589"),
+        ("35383033474447895560", "**5560"),
+        ("73654108430135874305", "**4305")
+    ]
+)
+def test_get_mask_account(account_num, expected_account_num):
+    assert get_mask_account(account_num) == expected_account_num
+
+
+@pytest.mark.parametrize(
+    "account_num",
+    [
+        64686473678894779589.0,
+        35383033474447895560.0,
+        True,
+        False,
+        None,
+        [73654108430135874305],
+        [64686473678894779589],
+        (3538303347, 4447895560),
+        (73654108430, 135874305),
+        {"64686473678": 894779589},
+        {35383033474: "447895560"}
+    ]
+)
+def test_get_mask_account_not_str_int(account_num, input_not_str_int):
+    assert get_mask_account(account_num) == input_not_str_int
+
+
+@pytest.mark.parametrize(
+    "account_num",
+    [
+        "72j6-!9683786870&199",
+        "98ds715.300ry4726758",
+        "tr3668319kfb76737-58",
+        "!!-j893cvb 113*`5229",
+        "--y8599941#^28426353",
+        "=(a312sldgjlwo^7(8-4",
+        "l5A2qwer:bmnlrmhg199",
+        "aaaaaaaaaaaaaaaaaaaa"
+    ]
+)
+def test_get_mask_account_not_digit(account_num, input_not_digit):
+    assert get_mask_account(account_num) == input_not_digit
+
+
+@pytest.mark.parametrize(
+    "account_num",
+    [
+        6468647367,
+        3538303347,
+        "7365410843",
+        "6468647367",
+        353830334744478955604447895560,
+        736541084301358743050135874305,
+        "646864736788947795898894779589",
+        "353830334744478955604447895560"
+    ]
+)
+def test_get_mask_account_not_16(account_num, input_not_20):
+    assert get_mask_account(account_num) == input_not_20
+
+
+@pytest.mark.parametrize(
+    "account_num",
+    [
+        "",
+        ''
+    ]
+)
+def test_get_mask_account_empty(account_num, empty_input):
+    assert get_mask_account(account_num) == empty_input
