@@ -34,8 +34,3 @@ def input_not_16_or_20():
 @pytest.fixture
 def no_type_number():
     return "incorrect input. no type number"
-
-
-@pytest.fixture
-def empty_input():
-    return "empty input"

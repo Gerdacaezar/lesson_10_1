@@ -20,3 +20,8 @@ def mask_account_card(type_and_number: str) -> str:
         return " ".join(list_type_and_number)
     else:
         return "incorrect input. number len != 16 or 20"
+
+
+def get_date(raw_date: str) -> str:
+    """Функция возвращает дату формата ДД.ММ.ГГГГ из технической строки формата ГГГГ-ММ-ДД..."""
+    return f"{raw_date[8:10]}.{raw_date[5:7]}.{raw_date[:4]}"
