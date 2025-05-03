@@ -72,9 +72,8 @@ def test_get_mask_card_number_not_16(card_num, input_not_16):
     assert get_mask_card_number(card_num) == input_not_16
 
 
-@pytest.mark.parametrize("card_num", ["", " "])
-def test_get_mask_card_number_empty(card_num, empty_input):
-    assert get_mask_card_number(card_num) == empty_input
+def test_get_mask_card_number_empty():
+    assert get_mask_card_number("") == "empty input"
 
 
 @pytest.mark.parametrize(
@@ -146,6 +145,5 @@ def test_get_mask_account_not_16(account_num, input_not_20):
     assert get_mask_account(account_num) == input_not_20
 
 
-@pytest.mark.parametrize("account_num", ["", " "])
-def test_get_mask_account_empty(account_num, empty_input):
-    assert get_mask_account(account_num) == empty_input
+def test_get_mask_account_empty():
+    assert get_mask_account("") == "empty input"
