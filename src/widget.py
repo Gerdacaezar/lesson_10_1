@@ -3,7 +3,7 @@ from src.masks import get_mask_account, get_mask_card_number
 
 def mask_account_card(type_and_number: str) -> str:
     """Функция маскировки номера карты или аккаунта"""
-    if type(type_and_number) != str:
+    if not isinstance(type_and_number, str):
         return "incorrect input. input must be str"
     if len(type_and_number) == 0:
         return "empty input"
@@ -24,7 +24,7 @@ def mask_account_card(type_and_number: str) -> str:
 
 def get_date(raw_date: str) -> str:
     """Функция возвращает дату формата ДД.ММ.ГГГГ из технической строки формата ГГГГ-ММ-ДД..."""
-    if type(raw_date) != str:
+    if not isinstance(raw_date, str):
         return "incorrect input. input must be str"
     if len(raw_date) == 0:
         return "empty input"
