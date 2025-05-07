@@ -10,6 +10,10 @@ def test_filter_by_state(example_dict):
     ]
 
 
+def test_filter_by_state_another_state(example_dict_another_state_date):
+    assert filter_by_state(example_dict_another_state_date) == []
+
+
 def test_filter_by_state_canceled(example_dict):
     assert filter_by_state(example_dict, needs_state="CANCELED") == [
         {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
@@ -24,6 +28,7 @@ def test_filter_by_state_canceled(example_dict):
         1.0,
         True,
         None,
+        "string",
     ],
 )
 def test_filter_by_state_type_error(dicts):
@@ -49,6 +54,10 @@ def test_sort_by_date(example_dict):
     ]
 
 
+def test_sort_by_date_another_date(example_dict_another_state_date):
+    assert filter_by_state(example_dict_another_state_date) == []
+
+
 def test_sort_by_date_reverse(example_dict):
     assert sort_by_date(example_dict, sort_range=False) == [
         {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
@@ -65,6 +74,7 @@ def test_sort_by_date_reverse(example_dict):
         1.0,
         True,
         None,
+        "string",
     ],
 )
 def test_sort_by_date_type_error(dicts):
@@ -79,3 +89,12 @@ def test_sort_by_date_empty():
 def test_sort_by_date_key_error(example_dict_crashed):
     with pytest.raises(KeyError):
         sort_by_date(example_dict_crashed)
+
+
+def test_sort_by_date_one_date(example_dict_one_date):
+    assert sort_by_date(example_dict_one_date) == [
+        {'date': '2019-07-03T18:35:29.512364', 'id': 41428829, 'state': 'EXECUTED'},
+        {'date': '2019-07-03T18:35:29.512364', 'id': 939719570, 'state': 'EXECUTED'},
+        {'date': '2019-07-03T18:35:29.512364', 'id': 594226727, 'state': 'CANCELED'},
+        {'date': '2019-07-03T18:35:29.512364', 'id': 615064591, 'state': 'CANCELED'}
+    ]
