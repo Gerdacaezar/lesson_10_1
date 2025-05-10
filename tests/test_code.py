@@ -1,6 +1,6 @@
 import pytest
 
-from utils.code import up_first, reverse_list, reverse_string
+from utils.code import reverse_list, reverse_string, up_first
 
 
 def test_up_first():
@@ -39,4 +39,3 @@ def test_reverse_list(my_list):
 ])
 def test_reverse_string(string, expected_result):
     assert reverse_string(string) == expected_result
-    

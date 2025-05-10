@@ -84,7 +84,7 @@ def example_dict_crashed_date():
         {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
         {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
     ]
-  
+
 
 def number_list():
     return [1, 2, 3, 4, 5]
