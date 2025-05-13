@@ -31,11 +31,14 @@ def test_reverse_list(my_list):
     assert reverse_list(my_list) == ["five", "four", 3, 2, 1, False]
 
 
-@pytest.mark.parametrize("string, expected_result", [
-    ("hello", "olleh"),
-    ("world", "dlrow"),
-    ("12345", "54321"),
-    ("", ""),
-])
+@pytest.mark.parametrize(
+    "string, expected_result",
+    [
+        ("hello", "olleh"),
+        ("world", "dlrow"),
+        ("12345", "54321"),
+        ("", ""),
+    ],
+)
 def test_reverse_string(string, expected_result):
     assert reverse_string(string) == expected_result
