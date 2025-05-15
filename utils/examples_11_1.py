@@ -1,5 +1,5 @@
 # Напишите генераторное выражение, которое возвращает кубы четных чисел от 0 до 10.
-print(*(x ** 3 for x in range(11) if x % 2 == 0))
+print(*(x**3 for x in range(11) if x % 2 == 0))
 # >>> 0 8 64 216 512 1000
 
 
@@ -14,7 +14,7 @@ print(sum_of_squares([-2, -1, 0, 1, 2, 3, 4]))
 # >>> 30
 
 # Напишите генераторное выражение, которое возвращает буквы строки "hello", но только если они являются гласными.
-print(*(x for x in 'hello' if x in ['a','e','i','o','u']))
+print(*(x for x in "hello" if x in ["a", "e", "i", "o", "u"]))
 
 # Найдите среднее арифметическое всех чисел, кратных 3 или 5, в диапазоне от 1 до 100 включительно.
 
@@ -24,7 +24,7 @@ print(sum(range_list) / len(range_list))
 
 # Объедините несколько списков в один список, учитывая возможные дубликаты элементов.
 def union_list(*lists: list) -> list:
-    result = set()
+    result: set = set()
     for lst in lists:
         result = result.union(set(lst))
     return list(result)
@@ -41,4 +41,4 @@ people = [
     {"name": "Eve", "age": 25},
 ]
 
-print([x for x in people if x['age'] == 30])
+print([x for x in people if x["age"] == 30])

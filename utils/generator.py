@@ -1,3 +1,5 @@
+from typing import Any, Iterable
+
 result = [x for num in range(20) for x in [num, num] if num % 2 == 0]
 print(result)
 # >>> [0, 0, 2, 2, 4, 4, 6, 6, 8, 8, 10, 10, 12, 12, 14, 14, 16, 16, 18, 18]
@@ -22,9 +24,9 @@ print([x * x for x in range(10)])
 # >>> [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 
 
-def print6(xs: iter) -> any:
+def print6(xs: Iterable[Any]) -> Any:
     for i, x in enumerate(xs):
-        print(x, end=' ')
+        print(x, end=" ")
         if i == 5:
             break
 
@@ -52,7 +54,7 @@ print(next(num_list))
 print(next(num_list))
 # >>> 2
 
-print(next(num_list, 'тут должна быть ошибка StopIteration, так как счетчик закончился, но она фиксится так'))
+print(next(num_list, "тут должна быть ошибка StopIteration, так как счетчик закончился, но она фиксится так"))
 # >>> тут должна быть ошибка StopIteration, так как счетчик закончился, но она фиксится так
 
 nums = [1, 2, 3, 4, 5, 6, 7, 8, 9]
