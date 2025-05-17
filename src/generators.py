@@ -8,7 +8,6 @@ def filter_by_currency(list_of_transactions: list[dict], currency: str) -> Gener
             yield x
 
 
-
 def transaction_descriptions(list_of_transactions: list[dict]) -> Generator[str]:
     """Функция возвращает описание переводов из списка транзакций"""
     for x in list_of_transactions:
