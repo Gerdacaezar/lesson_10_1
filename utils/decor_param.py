@@ -4,7 +4,9 @@ def checking_that_arg_is(predicate, error_message):
             if not predicate(arg):
                 raise ValueError(error_message)
             return func(arg)
+
         return inner
+
     return wrapper
 
 
@@ -19,16 +21,21 @@ print(example_function(5))  # >>> 10
 def greater_than(value):
     def predicate(arg):
         return arg > value
+
     return predicate
+
 
 def in_(*values):
     def predicate(arg):
         return arg in values
+
     return predicate
+
 
 def not_(other_predicate):
     def predicate(arg):
         return not other_predicate(arg)
+
     return predicate
 
 
