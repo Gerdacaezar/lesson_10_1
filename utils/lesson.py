@@ -3,12 +3,13 @@ def my_decorator(func):
         print("Начало работы")
         func(*args, **kwargs)
         print("Конец работы")
+
     return wrapper
 
 
 @my_decorator
 def say_hello():
-    print(f"hello!")
+    print("hello!")
 
 
 say_hello()

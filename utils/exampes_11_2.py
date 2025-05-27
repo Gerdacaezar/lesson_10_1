@@ -1,10 +1,8 @@
 import time
 
-
 # Задача 1.
 # Напишите декоратор, который проверяет, что все числа, возвращаемые декорируемой функцией, являются целыми,
 # и округляет их до целых, если это не так.
-
 
 
 def all_round(func):
@@ -14,6 +12,7 @@ def all_round(func):
             if not value % 10 == 0:
                 result[i] = round(value)
         return result
+
     return round_check
 
 
@@ -33,10 +32,11 @@ def retry(func):
         for i in range(3):
             try:
                 return func(*args, **kwargs)
-            except:
+            except Exception:
                 print("exception")
                 time.sleep(3)
-        raise Exception('Function call failed after multiple retries.')
+        raise Exception("Function call failed after multiple retries.")
+
     return wrapper
 
 
@@ -45,7 +45,7 @@ def excpt():
     raise Exception
 
 
-# print(excpt())
+print(excpt())
 
 
 # Задача 3.
@@ -59,7 +59,9 @@ def differ(func):
                 yield item
         else:
             yield result
+
     return wrapper
+
 
 @differ
 def num_list_2():
