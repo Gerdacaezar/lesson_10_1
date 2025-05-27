@@ -93,8 +93,8 @@ def test_sort_by_date_key_error(example_dict_crashed):
 
 def test_sort_by_date_one_date(example_dict_one_date):
     assert sort_by_date(example_dict_one_date) == [
-        {'date': '2019-07-03T18:35:29.512364', 'id': 41428829, 'state': 'EXECUTED'},
-        {'date': '2019-07-03T18:35:29.512364', 'id': 939719570, 'state': 'EXECUTED'},
-        {'date': '2019-07-03T18:35:29.512364', 'id': 594226727, 'state': 'CANCELED'},
-        {'date': '2019-07-03T18:35:29.512364', 'id': 615064591, 'state': 'CANCELED'}
+        {"date": "2019-07-03T18:35:29.512364", "id": 41428829, "state": "EXECUTED"},
+        {"date": "2019-07-03T18:35:29.512364", "id": 939719570, "state": "EXECUTED"},
+        {"date": "2019-07-03T18:35:29.512364", "id": 594226727, "state": "CANCELED"},
+        {"date": "2019-07-03T18:35:29.512364", "id": 615064591, "state": "CANCELED"},
     ]
