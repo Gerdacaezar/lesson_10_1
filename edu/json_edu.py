@@ -1,13 +1,15 @@
 import json
 
-
-people_string = """
-{
+# json-строка
+people_string = """{
     "people": [
         {
             "name": "John Smith",
             "phone": "666-555-444",
-            "emails": ["johnsmith@home.com", "john.smith@work.com"],
+            "emails": [
+                "johnsmith@home.com",
+                "john.smith@work.com"
+            ],
             "has_license": false
         },
         {
@@ -17,8 +19,7 @@ people_string = """
             "has_license": true
         }
     ]
-}
-"""
+}"""
 
 data = '{"name": "John Smith", "age": 30, "city": "New York"}'
 print(data)  # >>> {"name": "John Smith", "age": 30, "city": "New York"}
@@ -34,6 +35,18 @@ print(type(json_data))  # >>> <class 'str'>
 
 if data == json_data:
     print("OK")
+
+print(type(people_string))
+
+py_people_string = json.loads(people_string)
+print(type(py_people_string))
+
+json_people_string = json.dumps(py_people_string, indent=4)
+print(type(json_people_string))
+
+if people_string == json_people_string:
+    print("OK")
+
 
 print(type(json.loads("true")))  # >>> <class 'bool'>
 print(type(json.loads("[1, 2, 3]")))  # >>> <class 'list'>
