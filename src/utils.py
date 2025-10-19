@@ -1,6 +1,7 @@
 import json
-from src.external_api import convert_to_rub
 from typing import Any
+
+from src.external_api import convert_to_rub
 
 
 # Реализуйте функцию, которая принимает на вход путь до JSON-файла и возвращает список словарей с данными
@@ -30,11 +31,13 @@ def rub_amount(transaction: dict) -> float | Any:
     из src/external_api.py.
     """
     if transaction["operationAmount"]["currency"]["code"] == "RUB":
-        return transaction["operationAmount"]["amount"]
+        amount = transaction["operationAmount"]["amount"]
+        return amount
     else:
-        return convert_to_rub(
+        amount = convert_to_rub(
             transaction["operationAmount"]["amount"], transaction["operationAmount"]["currency"]["code"]
         )
+        return amount
 
 
 # Функцию конвертации поместите в модуль external_api.

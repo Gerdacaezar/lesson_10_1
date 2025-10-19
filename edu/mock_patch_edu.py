@@ -1,4 +1,5 @@
 import random
+
 import requests
 
 
@@ -10,8 +11,8 @@ print(get_random_number())
 
 
 def get_github_user_info(username):
-    response = requests.get(f'https://api.github.com/users/{username}')
+    response = requests.get(f"https://api.github.com/users/{username}")
     return response.json()
 
 
-print(get_github_user_info('gerdacaezar'))
+print(get_github_user_info("gerdacaezar"))
