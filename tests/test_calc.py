@@ -1,6 +1,6 @@
 import pytest
 
-from utils.calc import add, calculate_logarithm, divide, multiply, subtract
+from edu.calc import add, calculate_logarithm, divide, multiply, subtract
 
 
 # Тест функции сложения

@@ -1,6 +1,6 @@
 import pytest
 
-from utils.code import reverse_list, reverse_string, up_first
+from edu.code import reverse_list, reverse_string, up_first
 
 
 def test_up_first():
