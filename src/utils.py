@@ -5,7 +5,7 @@ from typing import Any
 from src.external_api import convert_to_rub
 
 logger = logging.getLogger("utils")
-file_handler = logging.FileHandler("../logs/utils.log", "w", "UTF-8")
+file_handler = logging.FileHandler("logs/utils.log", "w", "UTF-8")
 file_formatter = logging.Formatter("%(asctime)s - %(filename)s - %(levelname)s: %(message)s")
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
