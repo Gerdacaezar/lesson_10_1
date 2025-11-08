@@ -77,9 +77,9 @@ import logging
 # Создаем логер с именем модуля __name__
 logger = logging.getLogger(__name__)
 # Создаем хендлер FileHandler для вывода логов в файл example.log
-file_handler = logging.FileHandler('example.log')
+file_handler = logging.FileHandler("example.log", mode="w")
 # Создаем форматер Formatter для форматирования вывода используемого хендлера
-file_formatter = logging.Formatter('%(asctime)s %(levelname)s: %(message)s')
+file_formatter = logging.Formatter("%(asctime)s %(levelname)s: %(message)s")
 # Устанавливаем созданный форматер для хендлера
 file_handler.setFormatter(file_formatter)
 # Добавляем хендлер в логер
@@ -88,8 +88,8 @@ logger.addHandler(file_handler)
 logger.setLevel(logging.DEBUG)
 
 # Выводим сообщения разных уровней — от DEBUG до CRITICAL
-logger.debug('Debug message')
-logger.info('Info message')
-logger.warning('Warning message')
-logger.error('Error message')
-logger.critical('Critical message')
+logger.debug("Debug message")
+logger.info("Info message")
+logger.warning("Warning message")
+logger.error("Error message")
+logger.critical("Critical message")
