@@ -1,6 +1,5 @@
 import csv
 
-
 rows = [
     {"Name": "Alice", "Age": "25", "Gender": "Female"},
     {"Name": "Bob", "Age": "30", "Gender": "Male"},

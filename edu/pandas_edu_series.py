@@ -1,6 +1,5 @@
 import pandas as pd
 
-
 # Пример создания Series
 s = pd.Series([1, 2, 3, 4, 5])
 print(s)

@@ -1,6 +1,5 @@
 import csv
 
-
 # Необходимо прочитать CSV-файл и вывести на экран информацию о студентах, у которых средний балл больше 4.5.
 with open("students.csv") as file:
     reader = csv.DictReader(file)

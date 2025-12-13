@@ -1,6 +1,5 @@
 import csv
 
-
 rows = [["Name", "Age", "Gender"], ["Alice", "25", "Female"], ["Bob", "30", "Male"], ["Charlie", "35", "Male"]]
 
 # Создание и запись файла csv

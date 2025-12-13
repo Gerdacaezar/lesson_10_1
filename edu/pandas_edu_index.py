@@ -1,7 +1,6 @@
 import pandas as pd
 
-
-reviews = pd.read_csv('winemag-data-130k-v2.csv', index_col=0)
+reviews = pd.read_csv("winemag-data-130k-v2.csv", index_col=0)
 
 # Доступ к столбцам таблицы
 # Обращение через точку, если имя столбца соответствует правилам именования переменных в Python:
@@ -11,9 +10,9 @@ print(reviews.country[0])
 print()
 
 # Через квадратные скобки и имя столбца в виде строки:
-print(reviews['country'])
+print(reviews["country"])
 print()
-print(reviews['country'][0])
+print(reviews["country"][0])
 print()
 
 
@@ -31,12 +30,12 @@ print()
 # dataframe.iloc[индексы строк, индексы столбцов]
 
 # Пример:
-print(reviews.iloc[0])              # Первая строка датафрейма
-print(reviews.iloc[:, 0])           # Первый столбец датафрейма
-print(reviews.iloc[:3, 0])          # Первые три строки первого столбца
-print(reviews.iloc[1:3, 0])         # Вторая и третья строки первого столбца
-print(reviews.iloc[[0, 1, 2], 0])   # Первые три строки первого столбца
-print(reviews.iloc[-5:])            # Последние пять строк датафрейма
+print(reviews.iloc[0])  # Первая строка датафрейма
+print(reviews.iloc[:, 0])  # Первый столбец датафрейма
+print(reviews.iloc[:3, 0])  # Первые три строки первого столбца
+print(reviews.iloc[1:3, 0])  # Вторая и третья строки первого столбца
+print(reviews.iloc[[0, 1, 2], 0])  # Первые три строки первого столбца
+print(reviews.iloc[-5:])  # Последние пять строк датафрейма
 print()
 
 # Индексация с помощью loc
@@ -47,9 +46,9 @@ print()
 # dataframe.loc[метки строк, метки столбцов]
 
 # Пример:
-print(reviews.loc[0, 'country'])     # Значение первой строки в столбце `country`
-print(reviews.loc[:, 'country'])     # Все значения в столбце `country`
-print(reviews.loc[:, ['taster_name', 'taster_twitter_handle', 'points']])  # Все значения в указанных столбцах
+print(reviews.loc[0, "country"])  # Значение первой строки в столбце `country`
+print(reviews.loc[:, "country"])  # Все значения в столбце `country`
+print(reviews.loc[:, ["taster_name", "taster_twitter_handle", "points"]])  # Все значения в указанных столбцах
 print()
 
 
@@ -73,28 +72,22 @@ print()
 # Если True, проверяет, что новый индекс не содержит дубликатов, это гарантирует целостность данных.
 
 # Пример:
-import pandas as pd
-
-data = {
-    'student_id': ['001', '002', '003'],
-    'name': ['Alice', 'Bob', 'Charlie'],
-    'grade': [87, 92, 78]
-}
+data = {"student_id": ["001", "002", "003"], "name": ["Alice", "Bob", "Charlie"], "grade": [87, 92, 78]}
 
 df = pd.DataFrame(data)
 
 # Установить 'student_id' в качестве индекса
-df.set_index('student_id', inplace=True)
+df.set_index("student_id", inplace=True)
 
 # Легкий доступ к данным конкретного студента
-print(df.loc['001'])
+print(df.loc["001"])
 print()
 
 
 # Отбор данных по условию
 
 # Чтобы выбрать строки, где значение в столбце country равно "Italy", запишем:
-italy_reviews = reviews.loc[reviews.country == 'Italy']
+italy_reviews = reviews.loc[reviews.country == "Italy"]
 print(italy_reviews)
 print()
 
@@ -102,10 +95,10 @@ print()
 # Объединение условий с помощью логических операторов
 
 # Использование логического оператора & (и)
-high_rating_italy_reviews = reviews.loc[(reviews.country == 'Italy') & (reviews.points >= 90)]
+high_rating_italy_reviews = reviews.loc[(reviews.country == "Italy") & (reviews.points >= 90)]
 print(high_rating_italy_reviews)
 print()
 
 # Использование логического оператора | (или)
-italy_or_high_rating_reviews = reviews.loc[(reviews.country == 'Italy') | (reviews.points >= 90)]
+italy_or_high_rating_reviews = reviews.loc[(reviews.country == "Italy") | (reviews.points >= 90)]
 print(italy_or_high_rating_reviews)
