@@ -41,6 +41,10 @@ print()
 
 # Присвоить значение 'everyone' всем значениям в столбце `critic`
 reviews["critic"] = "everyone"
+print(reviews)
+print()
 
 # Создание нового столбца с обратным порядком индексов
 reviews["index_backwards"] = range(len(reviews), 0, -1)
+print(reviews)
+print()
