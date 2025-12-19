@@ -202,6 +202,17 @@ my_function(1, 2)
 # >>> my_function error: тип ошибки. Inputs: (1, 2), {}
 
 ```
+Примеры использования функций из read_csv_xlsx_files.py:
+```
+from src.read_csv_xlsx_files import read_csv_file, read_excel_file
+
+
+print(read_csv_file("data/example.csv"))
+>>>  [{"name": "Иван", "age": "25", "city": "Москва"}, {"name": "Мария", "age": "30", "city": "СПб"}]
+
+print(read_excel_file("data/example.xlsx"))
+>>>  [{"name": "Иван", "age": "25", "city": "Москва"}, {"name": "Мария", "age": "30", "city": "СПб"}]
+```
 
 
 ## Документация
@@ -217,7 +228,10 @@ my_function(1, 2)
     ├── processing.py
     ├── widget.py
     ├── generators.py
-    └── decorators.py
+    ├── decorators.py
+    ├── external_api.py
+    ├── read_csv_xlsx_files.py
+    └── utils.py
 
 ## Лицензия:
 
