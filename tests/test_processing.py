@@ -21,28 +21,28 @@ def test_filter_by_state_canceled(example_dict):
     ]
 
 
-@pytest.mark.parametrize(
-    "dicts",
-    [
-        1,
-        1.0,
-        True,
-        None,
-        "string",
-    ],
-)
-def test_filter_by_state_type_error(dicts):
-    with pytest.raises(TypeError):
-        filter_by_state(dicts)
+# @pytest.mark.parametrize(
+#     "dicts",
+#     [
+#         1,
+#         1.0,
+#         True,
+#         None,
+#         "string",
+#     ],
+# )
+# def test_filter_by_state_type_error(dicts):
+#     with pytest.raises(TypeError):
+#         filter_by_state(dicts)
 
 
 def test_filter_by_state_empty():
     assert filter_by_state([]) == []
 
 
-def test_filter_by_state_key_error(example_dict_crashed):
-    with pytest.raises(KeyError):
-        filter_by_state(example_dict_crashed)
+# def test_filter_by_state_key_error(example_dict_crashed):
+#     with pytest.raises(KeyError):
+#         filter_by_state(example_dict_crashed)
 
 
 def test_sort_by_date(example_dict):

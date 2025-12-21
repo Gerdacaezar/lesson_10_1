@@ -1,0 +1,20 @@
+[2021-10-20 10:23:45] INFO: User john.doe@gmail.com logged in
+[2021-10-20 10:23:46] INFO: User alice.smith@yahoo.com logged in
+[2021-10-20 10:23:47] INFO: User bob.johnson@gmail.com logged in
+[2021-10-20 10:23:48] DEBUG: Loading user data for sarah.jones@gmail.com
+[2021-10-20 10:23:49] DEBUG: User sarah.jones@gmail.com has been granted admin privileges
+[2021-10-20 10:23:50] WARNING: User mike.peters@hotmail.com has not confirmed their email address
+[2021-10-20 10:23:51] ERROR: Failed to send email to jane.doe@gmail.com
+[2021-10-20 10:23:51] ERROR: Error message: Connection timed out
+[2021-10-20 10:23:52] DEBUG: User sam.wilson@yahoo.com has updated their profile information
+[2021-10-20 10:23:53] INFO: User mark.thompson@gmail.com logged in
+[2021-10-20 10:23:54] DEBUG: Loading user data for kelly.brown@gmail.com
+[2021-10-20 10:23:55] DEBUG: User kelly.brown@gmail.com has been granted read-only access
+[2021-10-20 10:23:56] ERROR: Traceback (most recent call last):
+  File "/path/to/my/script.py", line 42, in ‹module›
+    my_function()
+  File "/path/to/my/script.py", line 23, in my_function
+    result = my_other_function()
+  File "/path/to/my/other/script.py", line 12, in my_other_function
+    raise ValueError("Invalid input")
+ValueError: Invalid input

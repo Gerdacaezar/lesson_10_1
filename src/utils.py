@@ -1,7 +1,15 @@
 import json
+import logging
 from typing import Any
 
 from src.external_api import convert_to_rub
+
+logger = logging.getLogger("utils")
+file_handler = logging.FileHandler("logs/utils.log", "w", "UTF-8")
+file_formatter = logging.Formatter("%(asctime)s - %(filename)s - %(levelname)s: %(message)s")
+file_handler.setFormatter(file_formatter)
+logger.addHandler(file_handler)
+logger.setLevel(logging.DEBUG)
 
 
 # Реализуйте функцию, которая принимает на вход путь до JSON-файла и возвращает список словарей с данными
@@ -14,9 +22,12 @@ def read_json_file(file: str) -> list[dict] | Any:
     Если json-файл пустой, содержит не список или не найден, функция возвращает пустой список
     """
     try:
+        logger.info("Открытие JSON-файла")
         with open(file, "r", encoding="UTF-8") as f:
+            logger.info("Возврат списка словарей")
             return json.load(f)
-    except (json.JSONDecodeError, FileNotFoundError):
+    except (json.JSONDecodeError, FileNotFoundError) as ex:
+        logger.error(f"Произошла ошибка: {ex}")
         return []
 
 
@@ -30,14 +41,21 @@ def rub_amount(transaction: dict) -> float | Any:
     Если транзакция была произведена не в рублях, то происходит обращение к функции конвертации в рубли convert_to_rub
     из src/external_api.py.
     """
-    if transaction["operationAmount"]["currency"]["code"] == "RUB":
-        amount = transaction["operationAmount"]["amount"]
-        return amount
-    else:
-        amount = convert_to_rub(
-            transaction["operationAmount"]["amount"], transaction["operationAmount"]["currency"]["code"]
-        )
-        return amount
+    try:
+        logger.info("Извлечение значения из словаря")
+        if transaction["operationAmount"]["currency"]["code"] == "RUB":
+            logger.info("Извлечение значения из словаря если оно в рублях")
+            amount = transaction["operationAmount"]["amount"]
+            return amount
+        else:
+            logger.info("Извлечение значения из словаря если оно не в рублях")
+            amount = convert_to_rub(
+                transaction["operationAmount"]["amount"], transaction["operationAmount"]["currency"]["code"]
+            )
+            return amount
+    except Exception as ex:
+        logger.error(f"Произошла ошибка: {ex}")
+        return 0.0
 
 
 # Функцию конвертации поместите в модуль external_api.

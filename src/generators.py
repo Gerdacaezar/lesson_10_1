@@ -4,8 +4,12 @@ from typing import Generator
 def filter_by_currency(list_of_transactions: list[dict], currency: str) -> Generator[dict]:
     """Функция фильтрации списка транзакций по валюте операции"""
     for transaction in list_of_transactions:
-        if transaction["operationAmount"]["currency"]["code"] == currency:
-            yield transaction
+        if "operationAmount" in transaction:
+            if transaction["operationAmount"]["currency"]["code"] == currency:
+                yield transaction
+        else:
+            if transaction["currency_code"] == currency:
+                yield transaction
 
 
 def transaction_descriptions(list_of_transactions: list[dict]) -> Generator[str]:
