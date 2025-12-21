@@ -65,5 +65,6 @@ exclude = [
     "venv",
     "tests",
     "edu",
-    "htmlcov"
+    "htmlcov",
+    "main.py"
 ]

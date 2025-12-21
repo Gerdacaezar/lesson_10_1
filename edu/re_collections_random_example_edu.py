@@ -1,6 +1,6 @@
 import json
-from collections import Counter
 import re
+from collections import Counter
 
 
 # Дан файл access.log, содержащий большой объем текста и email-адресов.
@@ -17,14 +17,14 @@ def count_emails(input_file: str, output_file: str):
     email_list = re.findall(pattern, data_from_file)
 
     # Вытаскиваем из email`ов все домены и подсчитываем
-    domains = Counter(item.split('@')[1] for item in email_list)
-    result = {'total_count': len(email_list), 'domains': {}}
+    domains = Counter(item.split("@")[1] for item in email_list)
+    result = {"total_count": len(email_list), "domains": {}}
     for domain, count in domains.items():
-        domain_emails = [email for email in email_list if email.split('@')[1] == domain]
-        result['domains'][domain] = {'count': count, 'emails': domain_emails}
+        domain_emails = [email for email in email_list if email.split("@")[1] == domain]
+        result["domains"][domain] = {"count": count, "emails": domain_emails}
 
-    with open(output_file, 'w', encoding='utf-8') as of:
+    with open(output_file, "w", encoding="utf-8") as of:
         json.dump(result, of, indent=4)
 
 
-print(count_emails('../data/access.log', 'result.json'))
+print(count_emails("../data/access.log", "result.json"))
